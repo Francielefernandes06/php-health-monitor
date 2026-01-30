@@ -3,6 +3,7 @@
 [![PHP Version](https://img.shields.io/badge/php-%3E%3D7.4-blue.svg)](https://php.net)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Tests](https://img.shields.io/badge/tests-passing-brightgreen.svg)]()
+[![Tests](https://github.com/Francielefernandes06/php-health-monitor/workflows/CI/badge.svg)](https://github.com/Francielefernandes06/php-health-monitor/actions)
 
 > Sistema de monitoramento de saúde e performance para aplicações PHP - gratuito, leve e auto-hospedado.
 
