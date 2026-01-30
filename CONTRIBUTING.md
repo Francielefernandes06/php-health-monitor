@@ -147,7 +147,7 @@ Exemplos de comportamento inaceitável:
 
 ### Aplicação
 
-Casos de comportamento abusivo, de assédio ou inaceitável podem ser reportados para [seu-email@example.com]. Todas as reclamações serão revisadas e investigadas.
+Casos de comportamento abusivo, de assédio ou inaceitável podem ser reportados para [francielefernandes126@gmail.com]. Todas as reclamações serão revisadas e investigadas.
 
 ## 📚 Recursos Úteis
 
@@ -165,8 +165,8 @@ Seus contribuidores:
 
 Sinta-se à vontade para:
 
-- Abrir uma [discussão](https://github.com/seu-usuario/php-health-monitor/discussions)
-- Enviar email para [seu-email@example.com]
+- Abrir uma [discussão](https://github.com/Francielefernandes06/php-health-monitor/discussions)
+- Enviar email para [francielefernandes126@gmail.com]
 - Perguntar no issue que está trabalhando
 
 ---
