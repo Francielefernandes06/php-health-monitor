@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Health Monitor - Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+        
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .stat-card h3 {
+            font-size: 0.875rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .stat-card .value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        
+        .stat-card .trend {
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+        
+        .trend.up {
+            color: #e74c3c;
+        }
+        
+        .trend.down {
+            color: #27ae60;
+        }
+        
+        .section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .section h2 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            text-align: left;
+            padding: 0.75rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        th {
+            font-weight: 600;
+            color: #666;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+        }
+        
+        tr:hover {
+            background: #f9f9f9;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .badge.success {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .badge.warning {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .badge.danger {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🏥 PHP Health Monitor</h1>
+    </div>
+    
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Tempo Médio de Resposta</h3>
+                <div class="value" id="avg-response">-</div>
+                <div class="trend up" id="response-trend">-</div>
+            </div>
+            
+            <div class="stat-card">
+                <h3>Requisições/Min</h3>
+                <div class="value" id="requests-per-min">-</div>
+                <div class="trend down" id="requests-trend">-</div>
+            </div>
+            
+            <div class="stat-card">
+                <h3>Taxa de Erro</h3>
+                <div class="value" id="error-rate">-</div>
+                <div class="trend down" id="error-trend">-</div>
+            </div>
+            
+            <div class="stat-card">
+                <h3>Uso de Memória</h3>
+                <div class="value" id="memory-usage">-</div>
+                <div class="trend up" id="memory-trend">-</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Requisições Recentes</h2>
+            <table id="requests-table">
+                <thead>
+                    <tr>
+                        <th>Horário</th>
+                        <th>Método</th>
+                        <th>URI</th>
+                        <th>Status</th>
+                        <th>Duração</th>
+                        <th>Memória</th>
+                    </tr>
+                </thead>
+                <tbody id="requests-body">
+                    <tr>
+                        <td colspan="6" class="loading">Carregando dados...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="section">
+            <h2>Queries Mais Lentas</h2>
+            <table id="queries-table">
+                <thead>
+                    <tr>
+                        <th>Query</th>
+                        <th>Duração</th>
+                        <th>Frequência</th>
+                    </tr>
+                </thead>
+                <tbody id="queries-body">
+                    <tr>
+                        <td colspan="3" class="loading">Carregando dados...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script>
+        // Placeholder - será implementado com dados reais da API
+        function loadStats() {
+            // Simula carregamento de dados
+            document.getElementById('avg-response').textContent = '245ms';
+            document.getElementById('requests-per-min').textContent = '127';
+            document.getElementById('error-rate').textContent = '0.8%';
+            document.getElementById('memory-usage').textContent = '45MB';
+        }
+        
+        function loadRequests() {
+            const tbody = document.getElementById('requests-body');
+            tbody.innerHTML = '<tr><td colspan="6" class="loading">Em breve: dados reais via API</td></tr>';
+        }
+        
+        function loadQueries() {
+            const tbody = document.getElementById('queries-body');
+            tbody.innerHTML = '<tr><td colspan="3" class="loading">Em breve: dados reais via API</td></tr>';
+        }
+        
+        // Carrega dados ao iniciar
+        loadStats();
+        loadRequests();
+        loadQueries();
+        
+        // Auto-refresh a cada 30 segundos
+        setInterval(() => {
+            loadStats();
+            loadRequests();
+            loadQueries();
+        }, 30000);
+    </script>
+</body>
+</html>

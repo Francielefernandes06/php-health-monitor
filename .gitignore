@@ -1,0 +1,44 @@
+# Dependencies
+/vendor/
+composer.lock
+
+# IDEs
+/.idea/
+/.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Testing
+/coverage/
+.phpunit.result.cache
+.phpunit.cache
+
+# Build artifacts
+/build/
+/dist/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+*.log
+/storage/logs/
+
+# Cache
+/storage/cache/
+/cache/
+
+# Config local
+config/health-monitor.local.php
+
+# OS
+Thumbs.db
