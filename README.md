@@ -195,7 +195,7 @@ Contribuições são muito bem-vindas! Veja [CONTRIBUTING.md](CONTRIBUTING.md) p
 
 ## 🔒 Segurança
 
-Se você descobrir alguma vulnerabilidade de segurança, por favor envie um email para security@phphealth.dev ao invés de usar o issue tracker.
+Se você descobrir alguma vulnerabilidade de segurança, por favor envie um email para francielefernandes126@gmail.com ao invés de usar o issue tracker.
 
 ## 📄 Licença
 
