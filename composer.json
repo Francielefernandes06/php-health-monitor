@@ -12,12 +12,12 @@
         "laravel",
         "symfony"
     ],
-    "homepage": "https://github.com/seu-usuario/php-health-monitor",
+    "homepage": "https://github.com/Francielefernandes06/php-health-monitor",
     "license": "MIT",
     "authors": [
         {
-            "name": "Seu Nome",
-            "email": "seu-email@example.com",
+            "name": "Franciele Fernandes",
+            "email": "francielefernandes126@gmail.com",
             "role": "Developer"
         }
     ],
@@ -28,6 +28,7 @@
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",
+        "illuminate/support": "^12.49",
         "phpstan/phpstan": "^1.10",
         "phpunit/phpunit": "^12.5",
         "squizlabs/php_codesniffer": "^3.7"
@@ -52,8 +53,11 @@
     "extra": {
         "laravel": {
             "providers": [
-                "PHPHealth\\Monitor\\Laravel\\HealthMonitorServiceProvider"
-            ]
+                "PHPHealth\\Monitor\\Integrations\\Laravel\\HealthMonitorServiceProvider"
+            ],
+            "aliases": {
+                "HealthMonitor": "PHPHealth\\Monitor\\Integrations\\Laravel\\Facades\\HealthMonitor"
+            }
         },
         "symfony": {
             "allow-contrib": false,
