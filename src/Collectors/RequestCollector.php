@@ -54,7 +54,7 @@ class RequestCollector implements CollectorInterface
      */
     public function collect(): array
     {
-        if (!$this->started) {
+        if (! $this->started) {
             return [];
         }
 
@@ -92,7 +92,7 @@ class RequestCollector implements CollectorInterface
         ];
 
         foreach ($keys as $key) {
-            if (!empty($_SERVER[$key])) {
+            if (! empty($_SERVER[$key])) {
                 $ip = $_SERVER[$key];
                 // Pega o primeiro IP se houver múltiplos
                 if (strpos($ip, ',') !== false) {

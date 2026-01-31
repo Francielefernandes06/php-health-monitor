@@ -46,7 +46,7 @@ class ErrorCollector implements CollectorInterface
 
     public function stop(): void
     {
-        if (!$this->started) {
+        if (! $this->started) {
             return;
         }
 
@@ -83,7 +83,7 @@ class ErrorCollector implements CollectorInterface
      */
     public function handleError(int $errno, string $errstr, string $errfile, int $errline): bool
     {
-        if (!$this->started) {
+        if (! $this->started) {
             return false;
         }
 
@@ -110,7 +110,7 @@ class ErrorCollector implements CollectorInterface
      */
     public function handleException(\Throwable $exception): void
     {
-        if (!$this->started) {
+        if (! $this->started) {
             return;
         }
 

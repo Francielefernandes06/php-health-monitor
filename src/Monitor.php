@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace PHPHealth\Monitor;
 
-use PHPHealth\Monitor\Collectors\RequestCollector;
 use PHPHealth\Monitor\Collectors\DatabaseCollector;
 use PHPHealth\Monitor\Collectors\ErrorCollector;
-use PHPHealth\Monitor\Storage\StorageInterface;
+use PHPHealth\Monitor\Collectors\RequestCollector;
+use PHPHealth\Monitor\Contracts\StorageInterface;
 use PHPHealth\Monitor\Storage\SQLiteStorage;
 use PHPHealth\Monitor\Support\Config;
 
@@ -56,7 +56,7 @@ class Monitor
      */
     public function stop(): void
     {
-        if (!$this->started) {
+        if (! $this->started) {
             return;
         }
 
@@ -73,7 +73,7 @@ class Monitor
      */
     public function shutdown(): void
     {
-        if (!$this->started) {
+        if (! $this->started) {
             return;
         }
 

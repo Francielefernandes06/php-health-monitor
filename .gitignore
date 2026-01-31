@@ -42,3 +42,4 @@ config/health-monitor.local.php
 
 # OS
 Thumbs.db
+.php-cs-fixer.cache

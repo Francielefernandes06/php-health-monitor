@@ -27,10 +27,10 @@
         "ext-json": "*"
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.5|^10.0",
+        "friendsofphp/php-cs-fixer": "^3.0",
         "phpstan/phpstan": "^1.10",
-        "squizlabs/php_codesniffer": "^3.7",
-        "friendsofphp/php-cs-fixer": "^3.0"
+        "phpunit/phpunit": "^12.5",
+        "squizlabs/php_codesniffer": "^3.7"
     },
     "autoload": {
         "psr-4": {
@@ -54,6 +54,13 @@
             "providers": [
                 "PHPHealth\\Monitor\\Laravel\\HealthMonitorServiceProvider"
             ]
+        },
+        "symfony": {
+            "allow-contrib": false,
+            "require": "5.0.*|6.0.*"
+        },
+        "branch-alias": {
+            "dev-main": "1.0-dev"
         }
     },
     "config": {

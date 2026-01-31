@@ -32,7 +32,7 @@ class Config
         $value = $this->config;
 
         foreach ($keys as $k) {
-            if (!isset($value[$k])) {
+            if (! isset($value[$k])) {
                 return $default;
             }
             $value = $value[$k];
@@ -52,7 +52,7 @@ class Config
         $config = &$this->config;
 
         foreach ($keys as $k) {
-            if (!isset($config[$k]) || !is_array($config[$k])) {
+            if (! isset($config[$k]) || ! is_array($config[$k])) {
                 $config[$k] = [];
             }
             $config = &$config[$k];

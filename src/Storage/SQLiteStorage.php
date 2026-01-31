@@ -4,14 +4,13 @@ declare(strict_types=1);
 
 namespace PHPHealth\Monitor\Storage;
 
-use PHPHealth\Monitor\Contracts\StorageInterface;
-use PHPHealth\Monitor\Support\Config;
 use PDO;
+use PHPHealth\Monitor\Support\Config;
 
 /**
  * Implementação de storage usando SQLite
  */
-class SQLiteStorage implements StorageInterface
+class SQLiteStorage implements \PHPHealth\Monitor\Contracts\StorageInterface
 {
     private Config $config;
     private ?PDO $pdo = null;
@@ -222,7 +221,7 @@ class SQLiteStorage implements StorageInterface
 
             // Cria diretório se não existir
             $dir = dirname($path);
-            if (!is_dir($dir)) {
+            if (! is_dir($dir)) {
                 mkdir($dir, 0755, true);
             }
 
