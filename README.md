@@ -209,8 +209,8 @@ Este projeto está sob a licença MIT. Veja [LICENSE](LICENSE) para mais detalhe
 ## 📞 Suporte
 
 - 📖 [Documentação Completa](docs/README.md)
-- 💬 [Discussões no GitHub](https://github.com/seu-usuario/php-health-monitor/discussions)
-- 🐛 [Reportar Bug](https://github.com/seu-usuario/php-health-monitor/issues)
+- 💬 [Discussões no GitHub](https://github.com/Francielefernandes06/php-health-monitor/discussions)
+- 🐛 [Reportar Bug](https://github.com/Francielefernandes06/php-health-monitor/issues)
 
 ---
 
