@@ -37,6 +37,7 @@ class HealthMonitorServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+
         // Publish config
         if ($this->app->runningInConsole()) {
             $this->publishes([
@@ -55,6 +56,9 @@ class HealthMonitorServiceProvider extends ServiceProvider
                 Console\CleanupCommand::class,
             ]);
         }
+
+        // Register views do dashboard
+        $this->loadViewsFrom(__DIR__ . '/../../../resources/views', 'health-monitor');
 
         // Register middleware
         if (config('health-monitor.enabled', true)) {

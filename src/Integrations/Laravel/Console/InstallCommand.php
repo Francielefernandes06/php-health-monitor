@@ -8,7 +8,7 @@ use Illuminate\Console\Command;
 
 class InstallCommand extends Command
 {
-    protected $signature = 'health-monitor:install';
+    protected $signature = 'health-monitor:install {--force : Overwrite any existing files}';
     protected $description = 'Install PHP Health Monitor';
 
     public function handle(): int

@@ -99,10 +99,11 @@ class ErrorCollector implements CollectorInterface
 
         // Chama o handler anterior se existir
         if ($this->previousErrorHandler !== null) {
-            return call_user_func($this->previousErrorHandler, $errno, $errstr, $errfile, $errline);
+            $result = call_user_func($this->previousErrorHandler, $errno, $errstr, $errfile, $errline);
+            return (bool) $result;
         }
 
-        return false;
+        return true;
     }
 
     /**
